@@ -5,8 +5,11 @@ import errorHandler from "./errorHandler.js";
 import cookieParser from "cookie-parser";
 import session from "express-session";
 import swaggerConfig from "./swagger.js";
-import connectMongo from 'connect-mongo';
+import dotenv from 'dotenv';
 
+dotenv.config();
+
+const mongoUrl = process.env.MONGO_URL;
 const app = express();
 app.use(express.json());
 const PORT = process.env.PORT || 3000;
@@ -27,7 +30,7 @@ swaggerConfig(app);
 
 // Conectar a MongoDB
 mongoose
-  .connect('mongodb://mongo:PuEWITEPXXkdwFlhjyxiWubDYIUYekGX@monorail.proxy.rlwy.net:58682', {
+  .connect(mongoUrl, {
 })
 
 .then(() => {
