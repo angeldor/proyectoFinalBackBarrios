@@ -1,5 +1,5 @@
 import express from "express";
-import { sendMail } from "../emailservice.js";
+import { sendMail } from "../emailService.js";
 import { userModel } from "../DAO/models/user.model.js";
 import UserRepository from "../DAO/DB/userRepository.js";
 import UserController from "../controller.js";
